@@ -1,0 +1,11 @@
+.bookcard{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:8em;
+    height:8em;
+    border: solid 2px grey;
+    border-radius: 5px;
+    background-color: bisque;
+}

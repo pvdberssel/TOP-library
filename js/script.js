@@ -7,6 +7,7 @@ function Book(bookTitle,bookAuthor,bookPages,bookRead){
     this.pages = bookPages;
     this.read = bookRead;
 }
+
 myLibrary.displayBooks = function displayBooks(){
     this.forEach((book) => console.log(book))
 }
