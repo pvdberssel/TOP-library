@@ -12,7 +12,7 @@ myLibrary.displayBooks = function displayBooks(){
     const bookContainer = document.querySelector(".book-container");
     this.forEach((book) => {
         const bookCard = document.createElement("div");
-        bookCard.classList.add("bookcard")
+        bookCard.classList.add("bookcard", "index")
 
         const divTitle = document.createElement("div");
         divTitle.classList.add('booktitle');
