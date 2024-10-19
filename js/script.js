@@ -58,6 +58,18 @@ displayButton.addEventListener('click',() => {
     myLibrary.displayBooks()
 })
 
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector(".show-dialog");
+const closeButton = document.querySelector("dialog button");
+
+showButton.addEventListener('click', () => {
+    dialog.showModal();
+});
+
+closeButton.addEventListener('click',() => {
+    dialog.close();
+})
+
 
 
 book1 = new Book('TITLE','1925','234',true);

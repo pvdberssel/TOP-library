@@ -10,7 +10,17 @@
 </head>
 
 <body>
-    <div class="header"><button class="display-book">display books</button></div>
+    <div class="header">
+        <dialog>
+            <form>
+                <label for="btitle">Title: </label>
+                <input type="text" id="btitle" name="btitle">
+            </form>
+            <button>Close</button>
+        </dialog>
+        <button class="show-dialog">Show the dialog</button>
+        <button class="display-book">display books</button>
+    </div>
     <div class="book-container">
     </div>
 </body>
