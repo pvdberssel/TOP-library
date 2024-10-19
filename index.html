@@ -13,8 +13,29 @@
     <div class="header">
         <dialog>
             <form>
-                <label for="btitle">Title: </label>
-                <input type="text" id="btitle" name="btitle">
+                <div class="dialog-container">
+                <div>
+                    <label for="btitle">Title: </label>
+                    <input type="text" id="btitle" name="btitle">
+                </div>
+                <div>
+                    <label for="bauthor">Author: </label>
+                    <input type="text" id="bauthor" name="bauthor">
+                </div>
+                <div>  
+                <label for="bpages">Number of Pages: </label>
+                <input type="number" step="1" id="bpages" name="bpages">
+                </div>      
+                <div>
+                <label for="bread">Finished the book? </label> 
+                <input type="checkbox"  id="bread" name="bread" value="Read">
+                
+                </div>  
+
+                <div>
+                    <input type="submit"  id="bsubmit" name="bsubmit" value="Add book">
+                </div>
+            </div>
             </form>
             <button>Close</button>
         </dialog>
