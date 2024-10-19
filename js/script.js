@@ -61,6 +61,14 @@ displayButton.addEventListener('click',() => {
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector(".show-dialog");
 const closeButton = document.querySelector("dialog button");
+const submitButton = document.querySelector("#bsubmit");
+document.querySelectorAll
+
+submitButton.addEventListener("click", (event) => {
+    addBook();
+    dialog.close();
+    event.preventDefault();
+})
 
 showButton.addEventListener('click', () => {
     dialog.showModal();
@@ -70,11 +78,19 @@ closeButton.addEventListener('click',() => {
     dialog.close();
 })
 
+function addBook(){
+    var inputTitle =Array.from(document.querySelectorAll("input"))[0].value;
+    Array.from(document.querySelectorAll("input"))[0].value = '';
+    var inputAuthor =Array.from(document.querySelectorAll("input"))[1].value;
+    Array.from(document.querySelectorAll("input"))[1].value='';
+    var inputPages =Array.from(document.querySelectorAll("input"))[2].value;
+    Array.from(document.querySelectorAll("input"))[2].value='';
+    var inputRead =Array.from(document.querySelectorAll("input"))[3].checked;
+    Array.from(document.querySelectorAll("input"))[3].checked=false;
 
 
-book1 = new Book('TITLE','1925','234',true);
-book1.addBookToLibrary(myLibrary);
+    book = new Book(inputTitle,inputAuthor,inputPages,inputRead);
+    book.addBookToLibrary(myLibrary);
+}
 
-book2 = new Book('TITLE2','1985','24',false);
-book2.addBookToLibrary(myLibrary);
 
