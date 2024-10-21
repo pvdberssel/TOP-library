@@ -106,9 +106,8 @@ function removeFromLibrary(indexBook){
 
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector(".show-dialog");
-const closeButton = document.querySelector("dialog button");
+const closeButton = document.querySelector(".close");
 const submitButton = document.querySelector("#bsubmit");
-document.querySelectorAll
 
 submitButton.addEventListener("click", (event) => {
     addBook();
@@ -122,6 +121,7 @@ showButton.addEventListener('click', () => {
 
 closeButton.addEventListener('click', () => {
     dialog.close();
+    event.preventDefault();
 })
 
 function addBook() {
