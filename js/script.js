@@ -102,10 +102,6 @@ function removeFromLibrary(indexBook){
 
 
 
-const displayButton = document.querySelector(".display-book");
-displayButton.addEventListener('click', () => {
-    myLibrary.displayBooks()
-})
 
 
 const dialog = document.querySelector("dialog");
