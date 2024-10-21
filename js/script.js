@@ -9,8 +9,13 @@ function Book(bookTitle, bookAuthor, bookPages, bookRead) {
 }
 
 myLibrary.displayBooks = function displayBooks() {
-    const bookContainer = document.querySelector(".book-container");
+    var bookContainer = document.querySelector(".book-container");
     this.forEach((book) => {
+        console.log(book)
+        console.log(containsObject(book, bookContainer))
+        if(!containsObject(book, bookContainer)){
+  
+
         const bookCard = document.createElement("div");
         bookCard.classList.add("bookcard", "index")
 
@@ -40,6 +45,7 @@ myLibrary.displayBooks = function displayBooks() {
         bookCard.appendChild(divRemove);
 
         bookContainer.appendChild(bookCard);
+        }
 
 
     }
@@ -48,14 +54,13 @@ myLibrary.displayBooks = function displayBooks() {
 const removeButtons = document.querySelectorAll(".remove-book");
 removeButtons.forEach((removeButton) => {
 removeButton.addEventListener('click', () => {
-    console.log("joe")
 })})
 
 
 const readButtons = document.querySelectorAll(".bookread");
 readButtons.forEach((readButton) => {
 readButton.addEventListener('click', () => {
-    console.log('read');
+
 })})
     booksDisplayed = true;
 }
@@ -108,8 +113,6 @@ function addBook() {
     var inputRead = Array.from(document.querySelectorAll("input"))[3].checked;
     Array.from(document.querySelectorAll("input"))[3].checked = false;
 
-    console.log("addbook")
-    console.log(myLibrary)
     book = new Book(inputTitle, inputAuthor, inputPages, inputRead);
     book.addBookToLibrary(myLibrary);
 }
@@ -117,22 +120,50 @@ function addBook() {
 
 Book.prototype.addBookToLibrary = function addBookToLibrary(myLibrary) {
     var inLibrary = false;
-    console.log(inLibrary)
-    console.log(this)
-    console.log(myLibrary)
 
     myLibrary.forEach((book) => {
-        console.log(book);
-        console.log((book.title == this.title) && (book.author == this.author))
+      
 
         if ((book.title === this.title) && (book.author === this.author)) {
             inLibrary = true;
         }
     })
-    console.log(inLibrary)
+
     if (!(inLibrary)) {
         myLibrary.push(this)
     } else {
     }
 }
+
+
+
+function containsObject(book, bookcontainer) {
+    var alreadyIn = false;
+
+    for (let i = 0; i < Array.from(bookcontainer.childNodes).length; i++) {
+        node = bookcontainer.childNodes[i];
+        titleBookContainer=node.childNodes[0].textContent;
+        authorBookContainer=node.childNodes[1].textContent;
+
+        if ((titleBookContainer === book.title) && (authorBookContainer == book.author)) {
+            alreadyIn = true;
+            return alreadyIn;
+            break;
+
+        }else{
+            alreadyIn = false;
+        }
+
+      }
+      return alreadyIn;
+    }
+
+
+        
+
+      
+
+
+
+
 
