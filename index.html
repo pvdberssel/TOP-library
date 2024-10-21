@@ -14,20 +14,20 @@
         <dialog>
             <form onsubmit="addBook()">
                 <div class="dialog-container">
-                <div>
+                <div class="form-input">
                     <label for="btitle">Title: </label>
                     <input type="text" id="btitle" name="btitle">
                 </div>
-                <div>
+                <div class="form-input">
                     <label for="bauthor">Author: </label>
                     <input type="text" id="bauthor" name="bauthor">
                 </div>
-                <div>  
+                <div class="form-input">  
                 <label for="bpages">Number of Pages: </label>
                 <input type="number" step="1" id="bpages" name="bpages">
                 </div>      
-                <div>
-                <label for="bread">Finished the book? </label> 
+                <div class="checkbox">
+                <label for="bread">Did you read the book? </label> 
                 <input type="checkbox"  id="bread" name="bread" value="Read">
                 
                 </div>  
@@ -35,12 +35,16 @@
                 <div>
                     <input type="submit"  id="bsubmit" name="bsubmit" value="Add book">
                 </div>
+                <div>
+                    <button class="close">Close</button>
+                </div>
             </div>
             </form>
-            <button>Close</button>
+            
         </dialog>
-        <button class="show-dialog">Show the dialog</button>
+        <button class="addbook show-dialog">+ Add Book</button>
     </div>
-    <div class="book-container"></div>
+    <div class="bottom"><div class="book-container"></div></div>
+    
 </body>
 </html>

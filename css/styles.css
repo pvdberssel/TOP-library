@@ -1,3 +1,19 @@
+:root{
+    --main-button-color: #DA8359;
+    --main-text-color:#FCFAEE;
+    --main-bg-color:#ECDFCC;
+    --card-bg-color:#A5B68D;
+}
+
+body{
+    margin:0px;
+    padding:0px;
+    background-color: var(--main-bg-color);
+}
+.body{
+    display:flex;
+    flex-direction: column;
+}
 input,
 button {
   width: 150px;
@@ -5,37 +21,86 @@ button {
   margin: 0;
   box-sizing: border-box;
 }
-
+.addbook{
+    padding:0px;
+    margin:0px;
+    height: 3em;
+    font-size:20px;
+    background-color: var(--main-button-color);
+    color:var(--main-text-color);
+    border-radius:15px;
+    font-weight:bold;
+}
 .bookcard{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:8em;
+    width:2em;
     height:10em;
     border: solid 2px grey;
     border-radius: 5px;
-    background-color: #FEEE91;
+    background-color: var(--card-bg-color);
 }
-
+#bread{
+    width:10px;
+}
+.form-input{
+    display:flex;
+    flex-direction: column;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height:5em;
+    background-color: var(--main-text-color);
+    box-shadow: 0px 2px 2px grey;
+    z-index: 25;
+    margin-bottom:10px
+}
 .bookread{
     width:5em;
     height:2em;
     background-color:#C4E1F6;
     border-color: white;
     border-radius: 5px;
+    border: none;
 }
-
+.bottom{
+    background-color: var(--main-bg-color);
+    flex:1;
+}
 .book-container{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap:16px;
+    background-color: var(--main-bg-color);
     
 }
-
+dialog{
+    background-color:var(--main-text-color);
+}
 .dialog-container{
     display:flex;
     flex-direction: column;
+    gap:5px;
+    justify-content: center;
+    align-items: center;
+}
+
+#bsubmit{
+    background-color:var(--card-bg-color);
+}
+
+.close{
+    background-color: var(--main-button-color);
+}
+
+.checkbox{
+    display:flex;
+    align-items: center;
     gap:5px;
 }
