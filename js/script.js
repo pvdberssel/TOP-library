@@ -61,20 +61,30 @@ const removeButtons = document.querySelectorAll(".remove-book");
 removeButtons.forEach((removeButton) => {
 var indexNumber=removeButton.className.split('index')[1];
 removeButton.addEventListener('click', () => {
-    removeFromLibrary(indexNumber)
+removeFromLibrary(indexNumber)
 
 })})
 
 
 const readButtons = document.querySelectorAll(".bookread");
 readButtons.forEach((readButton) => {
+var indexNumber=readButton.className.split('index')[1];
 readButton.addEventListener('click', () => {
-
+    changeReadStatus(indexNumber);
 })})
     booksDisplayed = true;
 }
 
-
+function changeReadStatus(indexNumber){
+    var cardString = ".bookread.index"+indexNumber;
+    btnRead = document.querySelector(cardString);
+    if (btnRead.textContent === 'READ'){
+        btnRead.textContent = 'NOT READ'
+    }else {
+        btnRead.textContent ='READ'
+    }
+    
+}
 
 Book.prototype.removeBookFromLibrary = function removeBookFromLibrary(myLibrary) {
     var bookIndex = myLibrary.findIndex((book) => book.title == this.title, this)
