@@ -37,11 +37,13 @@ myLibrary.displayBooks = function displayBooks() {
         bookCard.appendChild(divPages);
 
         const divRead = document.createElement("button");
-        divRead.classList.add('bookread',indexBook);
+        
         if(book.read){
         divRead.textContent = 'READ';
+        divRead.classList.add('bookread', 'read',indexBook);
         }else{
-            divRead.textContent = 'NOT READ';    
+            divRead.textContent = 'NOT READ';
+            divRead.classList.add('bookread', 'notread',indexBook);   
         }
         bookCard.appendChild(divRead);
 
@@ -79,6 +81,7 @@ function changeReadStatus(indexNumber){
     var cardString = ".bookread.index"+indexNumber;
     btnRead = document.querySelector(cardString);
     if (btnRead.textContent === 'READ'){
+        
         btnRead.textContent = 'NOT READ'
     }else {
         btnRead.textContent ='READ'
