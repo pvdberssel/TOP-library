@@ -40,9 +40,7 @@ myLibrary.displayBooks = function displayBooks(){
     
 }
 
-Book.prototype.addBookToLibrary = function addBookToLibrary(myLibrary){
-    myLibrary.push(this)
-}
+
 
 Book.prototype.removeBookFromLibrary = function removeBookFromLibrary(myLibrary){
     var bookIndex = myLibrary.findIndex((book) => book.title == this.title,this)
@@ -52,9 +50,10 @@ Book.prototype.removeBookFromLibrary = function removeBookFromLibrary(myLibrary)
 
 
 
+
+
 const displayButton = document.querySelector(".display-book");
 displayButton.addEventListener('click',() => {
-    console.log('click')
     myLibrary.displayBooks()
 })
 
@@ -88,9 +87,29 @@ function addBook(){
     var inputRead =Array.from(document.querySelectorAll("input"))[3].checked;
     Array.from(document.querySelectorAll("input"))[3].checked=false;
 
-
+    console.log("addbook")
+    console.log(myLibrary)
     book = new Book(inputTitle,inputAuthor,inputPages,inputRead);
     book.addBookToLibrary(myLibrary);
 }
 
+
+Book.prototype.addBookToLibrary = function addBookToLibrary(myLibrary){
+    var inLibrary=false;
+    console.log(inLibrary)
+    console.log(this)
+    console.log(myLibrary)
+    myLibrary.forEach((book) => {
+        console.log(book);
+        console.log((book.title == this.title) && (book.author == this.author))
+        
+        if((book.title === this.title) && (book.author === this.author)){
+            inLibrary=true;
+        }})
+    console.log(inLibrary)
+    if(!(inLibrary)){
+        myLibrary.push(this)
+    }else{
+    }
+}
 
