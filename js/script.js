@@ -10,6 +10,8 @@ function Book(bookTitle, bookAuthor, bookPages, bookRead) {
 
 myLibrary.displayBooks = function displayBooks() {
     var bookContainer = document.querySelector(".book-container");
+    var indexBook = "index" + (myLibrary.length - 1);
+    console.log(indexBook)
     this.forEach((book) => {
         console.log(book)
         console.log(containsObject(book, bookContainer))
@@ -17,30 +19,34 @@ myLibrary.displayBooks = function displayBooks() {
   
 
         const bookCard = document.createElement("div");
-        bookCard.classList.add("bookcard", "index")
+        bookCard.classList.add("bookcard", indexBook)
 
         const divTitle = document.createElement("div");
-        divTitle.classList.add('booktitle');
+        divTitle.classList.add('booktitle',indexBook);
         divTitle.textContent = book.title;
         bookCard.appendChild(divTitle);
 
         const divAuthor = document.createElement("div");
-        divAuthor.classList.add('bookauthor');
+        divAuthor.classList.add('bookauthor',indexBook);
         divAuthor.textContent = book.author;
         bookCard.appendChild(divAuthor);
 
         const divPages = document.createElement("div");
-        divPages.classList.add('bookpages');
+        divPages.classList.add('bookpages',indexBook)
         divPages.textContent = book.pages;
         bookCard.appendChild(divPages);
 
         const divRead = document.createElement("button");
-        divRead.classList.add('bookread');
+        divRead.classList.add('bookread',indexBook);
+        if(book.read){
         divRead.textContent = 'READ';
+        }else{
+            divRead.textContent = 'NOT READ';    
+        }
         bookCard.appendChild(divRead);
 
         const divRemove = document.createElement("button");
-        divRemove.classList.add('remove-book');
+        divRemove.classList.add('remove-book',indexBook);
         divRemove.textContent = 'X';
         bookCard.appendChild(divRemove);
 
@@ -53,7 +59,10 @@ myLibrary.displayBooks = function displayBooks() {
 
 const removeButtons = document.querySelectorAll(".remove-book");
 removeButtons.forEach((removeButton) => {
+var indexNumber=removeButton.className.split('index')[1];
 removeButton.addEventListener('click', () => {
+    removeFromLibrary(indexNumber)
+
 })})
 
 
@@ -72,6 +81,12 @@ Book.prototype.removeBookFromLibrary = function removeBookFromLibrary(myLibrary)
     myLibrary.splice(bookIndex, 1)
 }
 
+function removeFromLibrary(indexBook){
+    myLibrary.splice(indexBook, 1);
+    var cardString = ".bookcard.index"+indexBook;
+    document.querySelector('.book-container').removeChild(document.querySelector(cardString))
+    
+}
 
 
 
@@ -115,6 +130,7 @@ function addBook() {
 
     book = new Book(inputTitle, inputAuthor, inputPages, inputRead);
     book.addBookToLibrary(myLibrary);
+    myLibrary.displayBooks()
 }
 
 
