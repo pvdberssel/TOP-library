@@ -11,7 +11,7 @@ body{
     background-color: var(--main-bg-color);
     box-sizing: border-box;
 }
-.body{
+body{
     display:flex;
     flex-direction: column;
 }
@@ -38,27 +38,29 @@ button {
 .bookcard{
     display:flex;
     gap:5px;
+    margin-left:10px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width:9em;
     height:10em;
-    border: solid 2px grey;
+    border-left: solid 4px;
     border-radius: 5px;
     background-color: var(--card-bg-color);
+    border-left-color: #DA8359;
 }
 
 .remove-book{
     width:3em;
-    background-color: rgb(231, 228, 228);
-    color:RED;
+    background-color: var(--main-bg-color);
+    color:darkred;
     font-weight: bold;
-    border: solid 2px rgb(73, 70, 70);
+    border: solid 1.5px rgb(73, 70, 70);
 
     border-radius: 100%;
     width: 25px;
     height: 25px;
-    margin-top:15px;
+    margin-top:10px;
     font-size:18px;
 }
 
@@ -83,22 +85,37 @@ button {
     background-color: var(--main-text-color);
     box-shadow: 0px 2px 2px grey;
     z-index: 25;
-    margin-bottom:10px
+    margin-bottom:10px;
+    gap:50px;
+}
+
+h1{
+    justify-self: flex-start;
+    align-self: flex-start;
+    margin-right:50px;
+    margin-left:0px;
 }
 .bookread{
-    width:2em;
-    height:2em;
-    border-color: white;
-    border-radius: 5px;
+    margin-top:5px;
+    width:5em;
+    height:3em;
+    border: none 0px;
+    border-radius: 15px;
     border: none;
+    font-size: 10px;
 }
 
 .bookread.read{
-    background-color:green;
+    background-color:darkcyan;
+    color: white;
+    font-weight: bold;
 }
 
+
 .bookread.notread{
-    background-color:red;
+    background-color:darkred;
+    color: white;
+    font-weight: bold;
 }
 .bottom{
     background-color: var(--main-bg-color);
@@ -108,7 +125,7 @@ button {
     display:grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr) );
     grid-template-rows: auto;
-    gap:5px;
+    gap:5px;border-color: white;
     background-color: var(--main-bg-color);
     
 }
@@ -133,9 +150,15 @@ dialog{
     font-weight: bold;
 }
 
-#bsubmit:hover,.close:hover,.addbook:hover{
+#bsubmit:hover,.close:hover,.addbook:hover,.notread:hover{
 cursor: pointer;
 border:solid 3px darkcyan;
+color:white;
+}
+
+.bookread.read:hover{
+cursor: pointer;
+border:solid 3px darkred;
 color:white;
 }
 
