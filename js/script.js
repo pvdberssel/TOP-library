@@ -40,10 +40,10 @@ myLibrary.displayBooks = function displayBooks() {
         
         if(book.read){
         divRead.textContent = 'READ';
-        divRead.classList.add('bookread', 'read',indexBook);
+        divRead.classList.add('bookread', indexBook, 'read');
         }else{
             divRead.textContent = 'NOT READ';
-            divRead.classList.add('bookread', 'notread',indexBook);   
+            divRead.classList.add('bookread', indexBook,'notread');   
         }
         bookCard.appendChild(divRead);
 
@@ -61,7 +61,7 @@ myLibrary.displayBooks = function displayBooks() {
 
 const removeButtons = document.querySelectorAll(".remove-book");
 removeButtons.forEach((removeButton) => {
-var indexNumber=removeButton.className.split('index')[1];
+var indexNumber=removeButton.className.split('index')[1].split(' ')[0];
 removeButton.addEventListener('click', () => {
 removeFromLibrary(indexNumber)
 
@@ -70,7 +70,7 @@ removeFromLibrary(indexNumber)
 
 const readButtons = document.querySelectorAll(".bookread");
 readButtons.forEach((readButton) => {
-var indexNumber=readButton.className.split('index')[1];
+var indexNumber=readButton.className.split('index')[1].split(' ')[0];
 readButton.addEventListener('click', () => {
     changeReadStatus(indexNumber);
 })})
@@ -81,10 +81,14 @@ function changeReadStatus(indexNumber){
     var cardString = ".bookread.index"+indexNumber;
     btnRead = document.querySelector(cardString);
     if (btnRead.textContent === 'READ'){
-        
         btnRead.textContent = 'NOT READ'
+        btnRead.classList.remove("read");
+        btnRead.classList.add('notread');
     }else {
         btnRead.textContent ='READ'
+        btnRead.classList.remove('notread');
+        btnRead.classList.add("read");
+        
     }
     
 }
