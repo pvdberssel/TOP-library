@@ -28,9 +28,11 @@ button {
     height: 3em;
     font-size:20px;
     background-color: var(--main-button-color);
-    color:var(--main-text-color);
+    color:black;
     border-radius:15px;
     font-weight:bold;
+    border: none 0px;
+
 }
 
 .bookcard{
@@ -39,7 +41,7 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:8em;
+    width:9em;
     height:10em;
     border: solid 2px grey;
     border-radius: 5px;
@@ -48,6 +50,22 @@ button {
 
 .remove-book{
     width:3em;
+    background-color: rgb(231, 228, 228);
+    color:RED;
+    font-weight: bold;
+    border: solid 2px rgb(73, 70, 70);
+
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    margin-top:15px;
+    font-size:18px;
+}
+
+.remove-book:hover{
+    cursor: pointer;
+    color:rgb(245, 86, 86);
+    font-weight: bolder;
 }
 #bread{
     width:10px;
@@ -109,10 +127,28 @@ dialog{
 
 #bsubmit{
     background-color:var(--card-bg-color);
+    border:none 0px;
+    border-radius:10px;
+    height: 30px;
+    font-weight: bold;
 }
 
+#bsubmit:hover,.close:hover,.addbook:hover{
+cursor: pointer;
+border:solid 3px darkcyan;
+color:white;
+}
+
+#bsubmit:hover{
+    
+    background-color:var(--card-bg-color)
+}
 .close{
     background-color: var(--main-button-color);
+    border:none 0px;
+    border-radius:10px;
+    height: 30px;
+    font-weight: bold;
 }
 
 .checkbox{
