@@ -23,17 +23,17 @@ myLibrary.displayBooks = function displayBooks() {
 
         const divTitle = document.createElement("div");
         divTitle.classList.add('booktitle',indexBook);
-        divTitle.textContent = "Title: " + book.title;
+        divTitle.textContent =  book.title;
         bookCard.appendChild(divTitle);
 
         const divAuthor = document.createElement("div");
         divAuthor.classList.add('bookauthor',indexBook);
-        divAuthor.textContent = "Author: " + book.author;
+        divAuthor.textContent = book.author;
         bookCard.appendChild(divAuthor);
 
         const divPages = document.createElement("div");
         divPages.classList.add('bookpages',indexBook)
-        divPages.textContent = "Pages: " + book.pages;
+        divPages.textContent = book.pages;
         bookCard.appendChild(divPages);
 
         const divRead = document.createElement("button");
